@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bandify – Premium Rubber Bands</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -77,14 +77,16 @@
       background: #ffffff;
       color: #000;
       font-weight: bold;
-      padding: 0.4rem 1rem;
+      padding: 0.3rem 0.8rem;
       border-radius: 8px;
-      box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.15);
       border: 1px solid #ccc;
       text-decoration: none;
       transition: all 0.2s ease-in-out;
       display: inline-block;
       cursor: pointer;
+      margin-top: auto;
+      align-self: flex-start;
     }
 
     .add-to-cart-button:hover {
@@ -94,8 +96,12 @@
 
     .banner {
       text-align: center;
-      padding: 2rem;
+      padding: 4rem 2rem;
       background: var(--gray);
+      background-image: url('');
+      background-size: cover;
+      background-position: center;
+      min-height: 200px;
     }
 
     .banner h2 {
@@ -123,7 +129,7 @@
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
+      gap: 1.5rem;
       padding: 2rem;
     }
 
@@ -132,27 +138,30 @@
       border-radius: 1rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       padding: 1rem;
-      text-align: center;
-      height: 300px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: auto;
     }
 
     .product img {
-      max-width: 100%;
-      height: 150px;
+      width: 100%;
+      height: 120px;
       object-fit: contain;
       border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
     }
 
     .product h4 {
-      margin: 0.5rem 0;
+      margin: 0.4rem 0 0.2rem;
+      font-size: 1rem;
     }
 
     .product p {
-      color: gray;
       font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
     }
 
     footer {
@@ -173,8 +182,6 @@
       box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
       border: 1px solid #1da851;
       text-decoration: none;
-      transform: none;
-      transition: all 0.2s ease-in-out;
       z-index: 1000;
     }
 
@@ -192,8 +199,8 @@
   <header>
     <h1>Bandify</h1>
     <nav>
-      <a href="#checkout" class="paper-button">Checkout</a>
-      <a href="#cart" class="paper-button">Cart</a>
+      <a href="cart.html" class="paper-button">Cart</a>
+      <a href="contact.html" class="paper-button">Contact</a>
     </nav>
   </header>
 
@@ -207,18 +214,37 @@
   </section>
 
   <section class="products">
-    <!-- ✅ Your Real Product -->
+    <!-- ✅ Product 1 -->
     <div class="product">
       <img src="first-product.jpg" alt="Purple Hair Rubber Band">
       <h4>Purple Hair Band</h4>
       <p>₹99</p>
-      <button class="add-to-cart-button" onclick="addToCart()">Add to Cart</button>
+      <button class="add-to-cart-button" onclick="addToCart(1, 'Purple Hair Band', 99, 'first-product.jpg')">Add to Cart</button>
     </div>
 
-    <!-- Placeholder Products -->
-    <div class="product"><img src="https://via.placeholder.com/150?text=Coming+Soon"><h4>Coming Soon</h4></div>
-    <div class="product"><img src="https://via.placeholder.com/150?text=Coming+Soon"><h4>Coming Soon</h4></div>
-    <div class="product"><img src="https://via.placeholder.com/150?text=Coming+Soon"><h4>Coming Soon</h4></div>
+    <!-- ✅ Product 2 -->
+    <div class="product">
+      <img src="https://via.placeholder.com/150?text=Coming+Soon" alt="Pink Band">
+      <h4>Pink Elastic Band</h4>
+      <p>₹79</p>
+      <button class="add-to-cart-button" onclick="addToCart(2, 'Pink Elastic Band', 79, 'https://via.placeholder.com/150?text=Coming+Soon')">Add to Cart</button>
+    </div>
+
+    <!-- ✅ Product 3 -->
+    <div class="product">
+      <img src="https://via.placeholder.com/150?text=Coming+Soon" alt="Black Band">
+      <h4>Black Premium Band</h4>
+      <p>₹89</p>
+      <button class="add-to-cart-button" onclick="addToCart(3, 'Black Premium Band', 89, 'https://via.placeholder.com/150?text=Coming+Soon')">Add to Cart</button>
+    </div>
+
+    <!-- ✅ Product 4 -->
+    <div class="product">
+      <img src="https://via.placeholder.com/150?text=Coming+Soon" alt="Mix Pack">
+      <h4>Color Mix Pack</h4>
+      <p>₹149</p>
+      <button class="add-to-cart-button" onclick="addToCart(4, 'Color Mix Pack', 149, 'https://via.placeholder.com/150?text=Coming+Soon')">Add to Cart</button>
+    </div>
   </section>
 
   <footer>
@@ -229,12 +255,12 @@
   </footer>
 
   <script>
-    function addToCart() {
+    function addToCart(id, name, price, image) {
       const product = {
-        id: 1,
-        name: "Purple Hair Band",
-        price: 99,
-        image: "first-product.jpg",
+        id,
+        name,
+        price,
+        image,
         quantity: 1
       };
 
