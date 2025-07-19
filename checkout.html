@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout – Bandify</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #a259ff;
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #a259ff;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #883cd9;
+    }
+
+    .success, .error {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Checkout</h1>
+
+  <form id="checkoutForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="text" id="phone" placeholder="Phone Number" required>
+    <input type="text" id="email" placeholder="Email Address" required>
+    <textarea id="address" placeholder="Full Address" required></textarea>
+    <input type="text" id="pincode" placeholder="Pincode" required>
+    <button type="submit">Place Order</button>
+  </form>
+
+  <div id="responseMessage"></div>
+
+  <script>
+    const form = document.getElementById('checkoutForm');
+    const messageBox = document.getElementById('responseMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const data = {
+        customer_name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value,
+        pincode: document.getElementById('pincode').value,
+        order_items: [
+          {
+            name: 'Rubber Band Set',
+            quantity: 1,
+            price: 99
+          }
+        ]
+      };
+
+      try {
+        const res = await fetch('https://your-backend-url.com/create-order', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+
+        if (result.success || result.status === 'success') {
+          messageBox.innerHTML = '<div class="success">✅ Order placed successfully!</div>';
+        } else {
+          messageBox.innerHTML = '<div class="error">❌ Failed to place order.</div>';
+        }
+      } catch (error) {
+        messageBox.innerHTML = '<div class="error">⚠️ Error connecting to server.</div>';
+      }
+    });
+  </script>
+
+</body>
+</html>

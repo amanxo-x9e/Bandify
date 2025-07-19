@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact – Bandify</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #a259ff;
+      --dark: #222;
+      --light: #fff;
+      --gray: #f4f4f4;
+      --button-bg: #a259ff;
+      --button-text: #fff;
+      --button-shadow: rgba(0, 0, 0, 0.2);
+      --button-border: #6b32c9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--light);
+      color: var(--dark);
+    }
+
+    header {
+      background: var(--primary);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--light);
+    }
+
+    .contact-content {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: var(--light);
+    }
+
+    .contact-content h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--dark);
+    }
+
+    .contact-content p {
+      font-size: 1.3rem;
+      margin: 1rem 0;
+    }
+
+    .paper-button {
+      display: inline-block;
+      margin: 1rem;
+      padding: 0.8rem 1.6rem;
+      background: var(--button-bg);
+      color: var(--button-text);
+      font-weight: bold;
+      border: 2px solid var(--button-border);
+      border-radius: 12px;
+      box-shadow: 4px 4px 0 var(--button-shadow);
+      text-decoration: none;
+      transform: rotate(-2deg);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .paper-button:hover {
+      transform: rotate(0deg) scale(1.03);
+      box-shadow: 2px 2px 0 var(--button-shadow);
+    }
+
+    .paper-button:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 var(--button-shadow);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--gray);
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Contact Bandify</h1>
+  </header>
+
+  <section class="contact-content">
+    <h2>Get in Touch with Bandify</h2>
+    <p><strong>Phone:</strong> 9012775446</p>
+    <p><strong>Email:</strong> businessamanxo@gmail.com</p>
+    <p><strong>Owner:</strong> Bhavna</p>
+    <a href="index.html" class="paper-button">Back to Home</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Bandify by Bhavna
+  </footer>
+
+</body>
+</html>
